@@ -10,13 +10,11 @@
 #import "MBProgressHUD.h"
 #import <unistd.h>
 
-
 #define SCREENSHOT_MODE 0
 
 #ifndef kCFCoreFoundationVersionNumber_iOS_8_0
 	#define kCFCoreFoundationVersionNumber_iOS_7_0 847.20
 #endif
-
 
 @interface HudDemoViewController () <MBProgressHUDDelegate> {
 	MBProgressHUD *HUD;
@@ -28,12 +26,16 @@
 
 @end
 
-
 @implementation HudDemoViewController
 
 #pragma mark - Lifecycle methods
 
 - (void)viewDidLoad {
+	self.view.backgroundColor = [UIColor blueColor];
+	
+	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(didClickLeftBarButtonItem:)];
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(didClickRightBarButtonItem:)];
+	
 	UIView *content = [[self.view subviews] objectAtIndex:0];
 #if SCREENSHOT_MODE
 	[content.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
@@ -62,6 +64,24 @@
 
 #pragma mark - Actions
 
+- (IBAction)showOnSelfViewWindow:(id)sender {
+	HUD = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+	HUD.labelText = @"On self.view.window";
+	[HUD hide:YES afterDelay:3];
+}
+
+- (IBAction)showOnSelfNavigationControllerView:(id)sender {
+	HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+	HUD.labelText = @"On self.navigationController.view";
+	[HUD hide:YES afterDelay:3];
+}
+
+- (IBAction)showOnSelfView:(id)sender {
+	HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+	HUD.labelText = @"On self.view";
+	[HUD hide:YES afterDelay:3];
+}
+
 - (IBAction)showSimple:(id)sender {
 	// The hud will dispable all input on the view (use the higest view possible in the view hierarchy)
 	HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
@@ -75,7 +95,6 @@
 }
 
 - (IBAction)showWithLabel:(id)sender {
-	
 	HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
 	[self.navigationController.view addSubview:HUD];
 	
@@ -86,7 +105,6 @@
 }
 
 - (IBAction)showWithDetailsLabel:(id)sender {
-	
 	HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
 	[self.navigationController.view addSubview:HUD];
 	
@@ -99,7 +117,6 @@
 }
 
 - (IBAction)showWithLabelDeterminate:(id)sender {
-	
 	HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
 	[self.navigationController.view addSubview:HUD];
 	
@@ -128,7 +145,6 @@
 }
 
 - (IBAction)showWithLabelDeterminateHorizontalBar:(id)sender {
-	
 	HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
 	[self.navigationController.view addSubview:HUD];
 	
@@ -142,7 +158,6 @@
 }
 
 - (IBAction)showWithCustomView:(id)sender {
-	
 	HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
 	[self.navigationController.view addSubview:HUD];
 	
@@ -161,7 +176,6 @@
 }
 
 - (IBAction)showWithLabelMixed:(id)sender {
-	
 	HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
 	[self.navigationController.view addSubview:HUD];
 	
@@ -210,9 +224,7 @@
 	HUD.delegate = self;
 }
 
-
 - (IBAction)showWithGradient:(id)sender {
-	
 	HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
 	[self.navigationController.view addSubview:HUD];
 	
@@ -226,7 +238,6 @@
 }
 
 - (IBAction)showTextOnly:(id)sender {
-	
 	MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
 	
 	// Configure for text only and offset down
@@ -247,6 +258,14 @@
 	
 	HUD.delegate = self;
 	[HUD showWhileExecuting:@selector(myTask) onTarget:self withObject:nil animated:YES];	
+}
+
+- (void)didClickLeftBarButtonItem:(id)sender {
+	NSLog(@"didClickLeftBarButtonItem...");
+}
+
+- (void)didClickRightBarButtonItem:(id)sender {
+	NSLog(@"didClickRightBarButtonItem...");
 }
 
 #pragma mark - Execution code
@@ -331,4 +350,5 @@
 	[self setButtons:nil];
 	[super viewDidUnload];
 }
+
 @end

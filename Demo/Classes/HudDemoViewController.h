@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 @interface HudDemoViewController : UIViewController
 
 @end

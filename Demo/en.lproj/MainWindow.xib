@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4457.9" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment version="528" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3682.9"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIApplication">
@@ -21,57 +21,24 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <color key="backgroundColor" red="0.8862745098" green="0.90588235289999997" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </window>
         <navigationController id="15">
             <extendedEdge key="edgesForExtendedLayout"/>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-            <nil key="simulatedTopBarMetrics"/>
-            <nil key="simulatedBottomBarMetrics"/>
-            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-            <nil key="simulatedDestinationMetrics"/>
             <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="17">
                 <autoresizingMask key="autoresizingMask"/>
             </navigationBar>
             <viewControllers>
                 <viewController title="MBProgressHUD" nibName="HudDemoViewController" id="16" customClass="HudDemoViewController">
-                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" title="MBProgressHUD" id="18"/>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <nil key="simulatedDestinationMetrics"/>
                 </viewController>
             </viewControllers>
         </navigationController>
     </objects>
-    <classes>
-        <class className="HudDemoAppDelegate" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HudDemoAppDelegate.h"/>
-            <relationships>
-                <relationship kind="outlet" name="navController" candidateClass="UINavigationController"/>
-                <relationship kind="outlet" name="window" candidateClass="UIWindow"/>
-            </relationships>
-        </class>
-        <class className="HudDemoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HudDemoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showOnWindow:"/>
-                <relationship kind="action" name="showSimple:"/>
-                <relationship kind="action" name="showTextOnly:"/>
-                <relationship kind="action" name="showURL:"/>
-                <relationship kind="action" name="showUsingBlocks:"/>
-                <relationship kind="action" name="showWIthLabelAnnularDeterminate:"/>
-                <relationship kind="action" name="showWithColor:"/>
-                <relationship kind="action" name="showWithCustomView:"/>
-                <relationship kind="action" name="showWithDetailsLabel:"/>
-                <relationship kind="action" name="showWithGradient:"/>
-                <relationship kind="action" name="showWithLabel:"/>
-                <relationship kind="action" name="showWithLabelDeterminate:"/>
-                <relationship kind="action" name="showWithLabelDeterminateHorizontalBar:"/>
-                <relationship kind="action" name="showWithLabelMixed:"/>
-            </relationships>
-        </class>
-    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

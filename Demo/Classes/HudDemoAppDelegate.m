@@ -15,8 +15,10 @@
 @synthesize window;
 @synthesize navController;
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {    
+- (void)applicationDidFinishLaunching:(UIApplication *)application {
+    window.backgroundColor = [UIColor redColor];
 	window.rootViewController = navController;
+    navController.view.backgroundColor = [UIColor greenColor];
 	[window makeKeyAndVisible];
 }
 

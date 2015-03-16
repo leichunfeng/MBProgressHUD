@@ -1,0 +1,6 @@
+source 'https://github.com/Artsy/Specs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '7.0'
+
+pod 'Reveal-iOS-SDK', '1.5.1'
